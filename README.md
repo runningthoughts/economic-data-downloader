@@ -1,5 +1,12 @@
 # Economic Data Fetcher 📈
 
+This repository contains tools for fetching and visualizing economic and market data:
+
+1. A Streamlit-based web application that fetches and visualizes economic data from the Federal Reserve Economic Data (FRED) database.
+2. A CLI tool for fetching market data (DJIA, S&P 500, NASDAQ) from Yahoo Finance.
+
+## FRED Data Fetcher (Web App)
+
 A Streamlit-based web application that fetches and visualizes economic data from the Federal Reserve Economic Data (FRED) database. This tool allows users to select multiple economic indicators, specify date ranges, and download the combined data as CSV files.
 
 ## Features
@@ -100,4 +107,59 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Acknowledgments
 
 - Data provided by [FRED, Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/)
-- Built with [Streamlit](https://streamlit.io/) 
+- Built with [Streamlit](https://streamlit.io/)
+
+## Market Data CLI Tool
+
+A Python CLI tool that fetches daily closing data for DJIA, S&P 500, and NASDAQ over a given date range and saves it to CSV.
+
+### Setting up the Virtual Environment
+
+First, ensure you have the required packages for creating virtual environments:
+
+```bash
+# On Debian/Ubuntu
+sudo apt install python3-venv
+
+# On other systems, the venv module might be included by default
+```
+
+Then create and activate the virtual environment:
+
+```bash
+cd economic-data
+python3 -m venv venv
+source venv/bin/activate        # macOS/Linux
+venv\Scripts\activate.bat       # Windows
+pip install -r requirements.txt
+```
+
+### Usage
+
+```bash
+python fetch_market_data.py --start 2024-01-01 --end 2024-12-31 --out djia_sp500_nasdaq.csv
+```
+
+Command line arguments:
+- `--start`: Start date in YYYY-MM-DD format (default: 2024-01-01)
+- `--end`: End date in YYYY-MM-DD format (default: today)
+- `--out`: Output CSV file path (default: market_data.csv)
+
+### Future Extensions
+
+The market data tool is designed for easy extension:
+- Add support for fetching additional market symbols
+- Implement data visualization and plotting
+- Integrate with other economic indicators
+- Add data transformation and analysis capabilities
+
+## Dependencies
+
+- streamlit
+- pandas
+- fredapi
+- yfinance
+
+## License
+
+[Add your chosen license here] 
